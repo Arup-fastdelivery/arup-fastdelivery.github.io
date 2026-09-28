@@ -970,9 +970,17 @@ button,input,select,textarea{
     line-height:1;
     margin-right:5px;
     filter:drop-shadow(0 4px 5px rgba(0,0,0,.15));
+    animation: bounce 1.5s infinite;
   ">
     🎁
   </div>
+
+<style>
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px) rotate(5deg)}
+}
+</style>
 
 </div>
 
