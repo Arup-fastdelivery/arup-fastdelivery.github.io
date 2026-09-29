@@ -831,10 +831,10 @@ button,input,select,textarea{
   </div>
 
   <div class="category"
-       data-category="rice"
-       onclick="filterCategory('rice',this)">
-    <div class="categoryIcon">🌾</div>
-    <p>Chal</p>
+       data-category="masala"
+       onclick="filterCategory('masala',this)">
+    <div class="categoryIcon">🌶️</div>
+    <p>Masala</p>
   </div>
 
   <div class="category"
@@ -842,13 +842,6 @@ button,input,select,textarea{
        onclick="filterCategory('oil',this)">
     <div class="categoryIcon">🛢️</div>
     <p>Oil</p>
-  </div>
-
-  <div class="category"
-       data-category="masala"
-       onclick="filterCategory('masala',this)">
-    <div class="categoryIcon">🌶️</div>
-    <p>Masala</p>
   </div>
 
   <div class="category"
@@ -877,6 +870,13 @@ button,input,select,textarea{
     onclick="filterCategory('momos',this)">
     <div class="categoryIcon">🥟</div>
     <p>Momos</p>
+  </div>
+
+  <div class="category"
+       data-category="rice"
+       onclick="filterCategory('rice',this)">
+    <div class="categoryIcon">🌾</div>
+    <p>Chal</p>
   </div>
 
   <div class="category"
@@ -1244,10 +1244,6 @@ button,input,select,textarea{
 ===================================================== */
 
 const products = [
-  {name:"Basmati Chal 1kg",price:110,mrp:130,cat:"rice",unit:"kg",img:"/basmati.jpeg"},
-  {name:"Tuli Punjab Chal 25kg",price:1350,mrp:1550,cat:"rice",unit:"Punja",img:"/tuli.jpeg"},
-  {name:"44 Number Chal 25kg",price:950,mrp:1100,cat:"rice",unit:"44 Number",img:"/44.jpeg"},
-  {name:"KiliKoli Miniket 25kg",price:1250,mrp:1450,cat:"rice",unit:"bosta",img:"/kilikoli.jpeg"},
   {name:"Begun / Brinjal 1kg",price:30,mrp:40,cat:"veg",unit:"kg",img:"/begun.jpg"},
   {name:"Dheros / Bhindi 500g",price:20,mrp:30,cat:"veg",unit:"500g",img:"/dheros.jpeg"},
   {name:"Coconut 1pc",price:35,mrp:45,cat:"veg",unit:"pc",img:"/coconut.jpeg"},
@@ -1314,6 +1310,10 @@ const products = [
   {name:"Badshabhog Rice 5kg",price:480,mrp:580,cat:"rice",unit:"bosta",img:"/badshabhog.jpeg"},
   {name:"Radhatilak Rice 10kg",price:820,mrp:960,cat:"rice",unit:"bosta",img:"/radhatilak.jpeg"},
   {name:"Sitabhog Rice 10kg",price:760,mrp:900,cat:"rice",unit:"bosta",img:"/sitabhog.jpeg"},
+  {name:"Basmati Chal 1kg",price:110,mrp:130,cat:"rice",unit:"kg",img:"/basmati.jpeg"},
+  {name:"Tuli Punjab Chal 25kg",price:1350,mrp:1550,cat:"rice",unit:"Punja",img:"/tuli.jpeg"},
+  {name:"44 Number Chal 25kg",price:950,mrp:1100,cat:"rice",unit:"44 Number",img:"/44.jpeg"},
+  {name:"KiliKoli Miniket 25kg",price:1250,mrp:1450,cat:"rice",unit:"bosta",img:"/kilikoli.jpeg"},
   {name:"Bingo Chips",price:20,mrp:25,cat:"snacks",unit:"pc",img:"/bingo.jpeg"},
   {name:"Cheese Ball",price:30,mrp:40,cat:"snacks",unit:"pc",img:"/cheese.jpeg"},
   {name:"Dew Cold Drink",price:40,mrp:50,cat:"cold",unit:"pc",img:"/dew.jpeg"},
