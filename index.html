@@ -5,913 +5,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0c831f">
 <title>ROOP - All in One Delivery</title>
-
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
-}
-
-body{
-  background:#f7faf7;
-  color:#123;
-  padding-bottom:90px
-}
-
-button,input,select,textarea{
-  font:inherit
-}
-
-/* HEADER */
-.header{
-  background:#fff;
-  padding:12px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid #edf2ed
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px
-}
-
-.logo{
-  width:54px;
-  height:54px;
-  border-radius:15px;
-  background:#ff6a00;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:900;
-  box-shadow:0 4px 12px rgba(255,106,0,.25)
-}
-
-.brandTitle{
-  font-size:22px;
-  font-weight:900;
-  line-height:1
-}
-
-.brandTitle span{
-  color:#ff6a00
-}
-
-.brandSub{
-  margin-top:5px;
-  font-size:11px;
-  color:#557;
-  font-weight:600
-}
-
-.cartTop{
-  width:50px;
-  height:50px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  position:relative;
-  cursor:pointer
-}
-
-.cartBadge{
-  position:absolute;
-  top:1px;
-  right:-1px;
-  min-width:21px;
-  height:21px;
-  padding:0 5px;
-  border-radius:50px;
-  background:#ff2848;
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  display:none;
-  align-items:center;
-  justify-content:center
-}
-
-/* LOCATION */
-.location{
-  background:#fff;
-  padding:6px 18px 13px;
-  font-size:12px;
-  color:#566;
-  display:flex;
-  align-items:center;
-  gap:5px
-}
-
-.location b{
-  color:#0c831f
-}
-
-/* SEARCH */
-.searchWrap{
-  background:#fff;
-  padding:10px 18px 14px
-}
-
-.search{
-  height:54px;
-  border:1px solid #dce5dc;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  padding:0 15px;
-  gap:10px;
-  box-shadow:0 2px 10px rgba(0,0,0,.04)
-}
-
-.searchIcon{
-  font-size:27px;
-  color:#0c831f
-}
-
-.search input{
-  width:100%;
-  border:0;
-  outline:0;
-  font-size:16px;
-  color:#333
-}
-
-/* CATEGORIES */
-.categories{
-  background:#fff;
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-  padding:8px 18px 15px
-}
-
-.categories::-webkit-scrollbar{
-  display:none
-}
-
-.category{
-  min-width:72px;
-  text-align:center;
-  cursor:pointer;
-  flex-shrink:0
-}
-
-.categoryIcon{
-  width:72px;
-  height:72px;
-  border-radius:20px;
-  background:#f1f8f1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:38px;
-  border:1px solid #e6eee6
-}
-
-.category p{
-  margin-top:7px;
-  font-size:13px;
-  font-weight:800
-}
-
-.category.active{
-  color:#0c831f
-}
-
-.category.active .categoryIcon{
-  border:2px solid #0c831f;
-  background:#effaf1
-}
-
-/* OFFER */
-.offer{
-  margin:12px 18px 5px;
-  min-height:92px;
-  border-radius:18px;
-  padding:15px 18px;
-  color:#fff;
-  background:linear-gradient(135deg,#0c831f,#20a83a);
-  display:flex;
-  justify-content:space-between;
-  align-items:center
-}
-
-.offer h2{
-  font-size:20px
-}
-
-.offer p{
-  font-size:11px;
-  margin-top:4px
-}
-
-.offerEmoji{
-  font-size:45px
-}
-
-/* SECTION */
-.section{
-  padding:16px 18px 7px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center
-}
-
-.section h2{
-  font-size:19px
-}
-
-.section span{
-  font-size:11px;
-  color:#777
-}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:13px;
-  padding:8px 16px
-}
-
-.card{
-  background:#fff;
-  border:1px solid #e5ebe5;
-  border-radius:20px;
-  padding:10px;
-  position:relative;
-  overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.05)
-}
-
-.discount{
-  position:absolute;
-  left:10px;
-  top:10px;
-  z-index:2;
-  background:#0874d9;
-  color:#fff;
-  padding:5px 8px;
-  border-radius:9px;
-  font-size:11px;
-  font-weight:900
-}
-
-.productImage{
-  width:100%;
-  height:155px;
-  object-fit:contain;
-  border-radius:13px;
-  background:#f8faf8
-}
-
-.productName{
-  font-size:14px;
-  font-weight:900;
-  line-height:1.2;
-  margin-top:9px;
-  min-height:35px
-}
-
-.priceLine{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-top:7px
-}
-
-.price{
-  color:#087c2c;
-  font-size:20px;
-  font-weight:950
-}
-
-.oldPrice{
-  color:#999;
-  font-size:12px
-}
-
-.offSmall{
-  margin-left:auto;
-  background:#0c831f;
-  color:#fff;
-  padding:4px 6px;
-  border-radius:8px;
-  font-size:9px;
-  font-weight:900
-}
-
-/* QUANTITY */
-.quantity{
-  height:42px;
-  margin-top:9px;
-  border:1px solid #d9e4dc;
-  background:#f7fbf8;
-  border-radius:24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:4px 7px
-}
-
-.quantity button{
-  width:31px;
-  height:31px;
-  border-radius:50%;
-  border:0;
-  background:#0c831f;
-  color:#fff;
-  font-size:20px;
-  font-weight:900;
-  cursor:pointer
-}
-
-.quantity b{
-  font-size:12px;
-  color:#222
-}
-
-/* ADD */
-.addBtn{
-  width:100%;
-  margin-top:9px;
-  border:0;
-  background:#0c831f;
-  color:#fff;
-  height:42px;
-  border-radius:12px;
-  font-size:15px;
-  font-weight:900;
-  cursor:pointer
-}
-
-.addBtn:active{
-  transform:scale(.98)
-}
-
-/* TRUST */
-.trust{
-  margin:15px 16px 20px;
-  background:#eff9f1;
-  border:1px solid #d9eadb;
-  border-radius:18px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  padding:12px 4px
-}
-
-.trustItem{
-  text-align:center;
-  border-right:1px solid #cbdccc;
-  padding:2px 4px
-}
-
-.trustItem:last-child{
-  border-right:0
-}
-
-.trustIcon{
-  font-size:22px
-}
-
-.trustItem b{
-  display:block;
-  color:#285d37;
-  font-size:9px;
-  margin-top:3px
-}
-
-.trustItem span{
-  display:block;
-  color:#68806d;
-  font-size:8px;
-  margin-top:2px
-}
-
-/* BOTTOM CART */
-#basket{
-  position:fixed;
-  left:12px;
-  right:12px;
-  bottom:10px;
-  z-index:500;
-  background:#0c831f;
-  color:#fff;
-  border-radius:16px;
-  padding:12px 14px;
-  display:none;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 5px 20px rgba(0,0,0,.2)
-}
-
-#basketText{
-  font-size:14px;
-  font-weight:900
-}
-
-.viewCart{
-  background:#fff;
-  color:#0c831f;
-  border:0;
-  border-radius:20px;
-  padding:9px 15px;
-  font-weight:900
-}
-
-/* MODALS */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  z-index:1500;
-  align-items:center;
-  justify-content:center;
-  padding:20px
-}
-
-.modalBox{
-  background:#fff;
-  width:100%;
-  max-width:370px;
-  border-radius:20px;
-  padding:20px
-}
-
-.locationOption{
-  padding:13px;
-  border:1px solid #eee;
-  border-radius:10px;
-  margin:7px 0;
-  cursor:pointer
-}
-
-.cancelBtn{
-  width:100%;
-  padding:11px;
-  border:0;
-  border-radius:10px;
-  margin-top:8px;
-  background:#eee;
-  font-weight:800
-}
-
-/* CART */
-#cartPage{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:1000;
-  align-items:flex-end
-}
-
-.cartSheet{
-  width:100%;
-  max-height:94vh;
-  overflow-y:auto;
-  background:#f5f7f5;
-  border-radius:22px 22px 0 0
-}
-
-.cartHead{
-  background:#fff;
-  padding:17px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:5;
-  border-bottom:1px solid #eee
-}
-
-.closeCart{
-  font-size:25px;
-  cursor:pointer
-}
-
-.saveBox{
-  margin:12px;
-  padding:12px 15px;
-  border-radius:12px;
-  background:#eaf7ed;
-  color:#0c831f;
-  display:flex;
-  justify-content:space-between;
-  font-weight:900;
-  font-size:13px
-}
-
-.deliveryBox{
-  background:#fff;
-  margin:12px;
-  padding:13px;
-  border-radius:13px;
-  display:flex;
-  gap:10px;
-  border:1px solid #eee
-}
-
-.cartItem{
-  background:#fff;
-  margin:8px 12px;
-  padding:12px;
-  border-radius:13px;
-  border:1px solid #eee
-}
-
-.cartItemTop{
-  display:flex;
-  justify-content:space-between;
-  gap:10px
-}
-
-.cartName{
-  font-size:13px;
-  font-weight:900
-}
-
-.cartPrice{
-  font-weight:900
-}
-
-.cartQty{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-top:9px
-}
-
-.cartQty button{
-  width:29px;
-  height:29px;
-  border-radius:50%;
-  border:0;
-  background:#0c831f;
-  color:#fff;
-  font-weight:900;
-  font-size:17px
-}
-
-.remove{
-  color:#e53935;
-  font-size:11px;
-  font-weight:800;
-  margin-left:5px;
-  cursor:pointer
-}
-
-.bill{
-  background:#fff;
-  margin:12px;
-  padding:14px;
-  border-radius:13px;
-  border:1px solid #eee
-}
-
-.bill h3{
-  font-size:15px;
-  margin-bottom:8px
-}
-
-.billRow{
-  display:flex;
-  justify-content:space-between;
-  padding:6px 0;
-  font-size:13px
-}
-
-.billGrand{
-  border-top:1px dashed #ddd;
-  margin-top:5px;
-  padding-top:11px;
-  font-size:17px;
-  font-weight:900
-}
-
-.freeDelivery{
-  margin:0 12px;
-  background:#fff3e8;
-  color:#ff6a00;
-  border:1px dashed #ff6a00;
-  padding:10px;
-  border-radius:10px;
-  font-size:12px;
-  font-weight:800
-}
-
-.customer{
-  background:#fff;
-  margin:12px;
-  padding:13px;
-  border-radius:13px;
-  border:1px solid #eee
-}
-
-.customer input,
-.customer select,
-.customer textarea{
-  width:100%;
-  padding:11px;
-  margin-bottom:8px;
-  border:1px solid #ddd;
-  border-radius:9px;
-  outline:0;
-  font-size:13px
-}
-
-.customer textarea{
-  min-height:75px;
-  resize:none
-}
-
-.payment{
-  background:#f4faf5;
-  border:1px solid #cfe5d2;
-  border-radius:10px;
-  padding:10px
-}
-
-.payment label{
-  display:block;
-  font-size:12px;
-  margin-top:8px
-}
-
-.placeOrder{
-  margin:12px;
-  padding:14px 16px;
-  background:#0c831f;
-  color:#fff;
-  border-radius:13px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-weight:900;
-  cursor:pointer
-}
-
-.placeOrder small{
-  font-weight:400;
-  font-size:10px
-}
-
-/* SUCCESS */
-#orderSuccess{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:2000;
-  background:rgba(0,0,0,.65);
-  align-items:center;
-  justify-content:center;
-  padding:20px
-}
-
-.success{
-  width:100%;
-  max-width:340px;
-  background:#fff;
-  border-radius:22px;
-  padding:25px;
-  text-align:center
-}
-
-.successIcon{
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:#e8f7eb;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:38px;
-  color:#0c831f
-}
-
-.success h2{
-  color:#0c831f;
-  margin-top:12px
-}
-
-.successId{
-  margin:15px 0;
-  padding:11px;
-  background:#f4f4f4;
-  border-radius:10px;
-  font-weight:900
-}
-
-.success button{
-  width:100%;
-  padding:12px;
-  border:0;
-  border-radius:10px;
-  background:#0c831f;
-  color:#fff;
-  font-weight:900
-}
-
-/* DESKTOP */
-@media(min-width:700px){
-
-  .products{
-    grid-template-columns:repeat(4,1fr);
-    max-width:1100px;
-    margin:auto
-  }
-
-  .header,
-  .location,
-  .searchWrap,
-  .categories{
-    padding-left:calc((100% - 1100px)/2);
-    padding-right:calc((100% - 1100px)/2)
-  }
-
-  .offer{
-    max-width:1064px;
-    margin-left:auto;
-    margin-right:auto
-  }
-
-  .cartSheet{
-    max-width:520px;
-    margin-left:auto
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{background:#f7faf7;color:#123;padding-bottom:90px}
+button,input,select,textarea{font:inherit}
+.header{background:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:1px solid #edf2ed}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:54px;height:54px;border-radius:15px;background:#ff6a00;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;box-shadow:0 4px 12px rgba(255,106,0,.25)}
+.brandTitle{font-size:22px;font-weight:900;line-height:1}.brandTitle span{color:#ff6a00}
+.brandSub{margin-top:5px;font-size:11px;color:#557;font-weight:600}
+.cartTop{width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;cursor:pointer}
+.cartBadge{position:absolute;top:1px;right:-1px;min-width:21px;height:21px;padding:0 5px;border-radius:50px;background:#ff2848;color:#fff;font-size:11px;font-weight:900;display:none;align-items:center;justify-content:center}
+.location{background:#fff;padding:6px 18px 13px;font-size:12px;color:#566;display:flex;align-items:center;gap:5px}
+.location b{color:#0c831f}
+.searchWrap{background:#fff;padding:10px 18px 14px}
+.search{height:54px;border:1px solid #dce5dc;border-radius:18px;display:flex;align-items:center;padding:0 15px;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.searchIcon{font-size:27px;color:#0c831f}
+.search input{width:100%;border:0;outline:0;font-size:16px;color:#333}
+.categories{background:#fff;display:flex;gap:15px;overflow-x:auto;padding:8px 18px 15px}
+.categories::-webkit-scrollbar{display:none}
+.category{min-width:72px;text-align:center;cursor:pointer;flex-shrink:0}
+.categoryIcon{width:72px;height:72px;border-radius:20px;background:#f1f8f1;display:flex;align-items:center;justify-content:center;font-size:38px;border:1px solid #e6eee6}
+.category p{margin-top:7px;font-size:13px;font-weight:800}
+.category.active{color:#0c831f}.category.active.categoryIcon{border:2px solid #0c831f;background:#effaf1}
+.section{padding:16px 18px 7px;display:flex;justify-content:space-between;align-items:center;clear:both}
+.section h2{font-size:19px}.section span{font-size:11px;color:#777}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;padding:8px 16px;clear:both;width:100%}
+.card{background:#fff;border:1px solid #e5ebe5;border-radius:20px;padding:10px;position:relative;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+.discount{position:absolute;left:10px;top:10px;z-index:2;background:#0874d9;color:#fff;padding:5px 8px;border-radius:9px;font-size:11px;font-weight:900}
+.productImage{width:100%;height:155px;object-fit:contain;border-radius:13px;background:#f8faf8}
+.productName{font-size:14px;font-weight:900;line-height:1.2;margin-top:9px;min-height:35px}
+.priceLine{display:flex;align-items:center;gap:7px;margin-top:7px}
+.price{color:#087c2c;font-size:20px;font-weight:950}.oldPrice{color:#999;font-size:12px}
+.offSmall{margin-left:auto;background:#0c831f;color:#fff;padding:4px 6px;border-radius:8px;font-size:9px;font-weight:900}
+.quantity{height:42px;margin-top:9px;border:1px solid #d9e4dc;background:#f7fbf8;border-radius:24px;display:flex;align-items:center;justify-content:space-between;padding:4px 7px}
+.quantity button{width:31px;height:31px;border-radius:50%;border:0;background:#0c831f;color:#fff;font-size:20px;font-weight:900;cursor:pointer}
+.quantity b{font-size:12px;color:#222}
+.addBtn{width:100%;margin-top:9px;border:0;background:#0c831f;color:#fff;height:42px;border-radius:12px;font-size:15px;font-weight:900;cursor:pointer}
+.trust{margin:15px 16px 20px;background:#eff9f1;border:1px solid #d9eadb;border-radius:18px;display:grid;grid-template-columns:repeat(4,1fr);padding:12px 4px;clear:both}
+.trustItem{text-align:center;border-right:1px solid #cbdccc;padding:2px 4px}.trustItem:last-child{border-right:0}
+.trustIcon{font-size:22px}.trustItem b{display:block;color:#285d37;font-size:9px;margin-top:3px}.trustItem span{display:block;color:#68806d;font-size:8px;margin-top:2px}
+#basket{position:fixed;left:12px;right:12px;bottom:10px;z-index:500;background:#0c831f;color:#fff;border-radius:16px;padding:12px 14px;display:none;justify-content:space-between;align-items:center;box-shadow:0 5px 20px rgba(0,0,0,.2)}
+#basketText{font-size:14px;font-weight:900}.viewCart{background:#fff;color:#0c831f;border:0;border-radius:20px;padding:9px 15px;font-weight:900}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1500;align-items:center;justify-content:center;padding:20px}
+.modalBox{background:#fff;width:100%;max-width:370px;border-radius:20px;padding:20px}
+.locationOption{padding:13px;border:1px solid #eee;border-radius:10px;margin:7px 0;cursor:pointer}
+.cancelBtn{width:100%;padding:11px;border:0;border-radius:10px;margin-top:8px;background:#eee;font-weight:800}
+#cartPage{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:flex-end}
+.cartSheet{width:100%;max-height:94vh;overflow-y:auto;background:#f5f7f5;border-radius:22px 22px 0 0}
+.cartHead{background:#fff;padding:17px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5;border-bottom:1px solid #eee}
+.closeCart{font-size:25px;cursor:pointer}
+.saveBox{margin:12px;padding:12px 15px;border-radius:12px;background:#eaf7ed;color:#0c831f;display:flex;justify-content:space-between;font-weight:900;font-size:13px}
+.deliveryBox{background:#fff;margin:12px;padding:13px;border-radius:13px;display:flex;gap:10px;border:1px solid #eee}
+.cartItem{background:#fff;margin:8px 12px;padding:12px;border-radius:13px;border:1px solid #eee}
+.cartItemTop{display:flex;justify-content:space-between;gap:10px}
+.cartName{font-size:13px;font-weight:900}.cartPrice{font-weight:900}
+.cartQty{display:flex;align-items:center;gap:7px;margin-top:9px}
+.cartQty button{width:29px;height:29px;border-radius:50%;border:0;background:#0c831f;color:#fff;font-weight:900;font-size:17px}
+.remove{color:#e53935;font-size:11px;font-weight:800;margin-left:5px;cursor:pointer}
+.bill{background:#fff;margin:12px;padding:14px;border-radius:13px;border:1px solid #eee}
+.bill h3{font-size:15px;margin-bottom:8px}.billRow{display:flex;justify-content:space-between;padding:6px 0;font-size:13px}
+.billGrand{border-top:1px dashed #ddd;margin-top:5px;padding-top:11px;font-size:17px;font-weight:900}
+.freeDelivery{margin:0 12px;background:#fff3e8;color:#ff6a00;border:1px dashed #ff6a00;padding:10px;border-radius:10px;font-size:12px;font-weight:800}
+.customer{background:#fff;margin:12px;padding:13px;border-radius:13px;border:1px solid #eee}
+.customer input,.customer select,.customer textarea{width:100%;padding:11px;margin-bottom:8px;border:1px solid #ddd;border-radius:9px;outline:0;font-size:13px}
+.customer textarea{min-height:75px;resize:none}
+.payment{background:#f4faf5;border:1px solid #cfe5d2;border-radius:10px;padding:10px}
+.payment label{display:block;font-size:12px;margin-top:8px}
+.placeOrder{margin:12px;padding:14px 16px;background:#0c831f;color:#fff;border-radius:13px;display:flex;justify-content:space-between;align-items:center;font-weight:900;cursor:pointer}
+#orderSuccess{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.65);align-items:center;justify-content:center;padding:20px}
+.success{width:100%;max-width:340px;background:#fff;border-radius:22px;padding:25px;text-align:center}
+.successIcon{width:70px;height:70px;border-radius:50%;background:#e8f7eb;margin:auto;display:flex;align-items:center;justify-content:center;font-size:38px;color:#0c831f}
+.success h2{color:#0c831f;margin-top:12px}.successId{margin:15px 0;padding:11px;background:#f4f4f4;border-radius:10px;font-weight:900}
+.success button{width:100%;padding:12px;border:0;border-radius:10px;background:#0c831f;color:#fff;font-weight:900}
 </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
-<header class="header">
-
-  <div class="brand">
-
-    <div class="logo">R</div>
-
-    <div>
-      <div class="brandTitle">
-        ROOP <span>All in One</span>
-      </div>
-
-      <div class="brandSub">
-        ⚡ Delivery in 1 Hour | 📍 Hemtabad, Raiganj & Kaliyaganj
-      </div>
-    </div>
-
-  </div>
-
-  <div class="cartTop" onclick="showCart()" aria-label="Cart">
-    🛒
-    <span id="cartBadge" class="cartBadge">0</span>
-  </div>
-
-</header>
-
-
-<!-- LOCATION -->
-<div class="location">
-  📍 Delivering to:
-  <b id="locationText">Hemtabad Bazar</b>
-  <span onclick="openLocation()" style="cursor:pointer">▼</span>
-</div>
-
-
-<!-- SEARCH -->
-<div class="searchWrap">
-
-  <div class="search">
-
-    <span class="searchIcon">⌕</span>
-
-    <input
-      id="searchBox"
-      placeholder="Search for products..."
-      oninput="doSearch()"
-      autocomplete="off"
-    >
-
-  </div>
-
-</div>
-
-
-<!-- CATEGORIES -->
+<header class="header"><div class="brand"><div class="logo">R</div><div><div class="brandTitle">ROOP <span>All in One</span></div><div class="brandSub">⚡ Delivery in 1 Hour | 📍 Hemtabad, Raiganj & Kaliyaganj</div></div></div><div class="cartTop" onclick="showCart()">🛒<span id="cartBadge" class="cartBadge">0</span></div></header>
+<div class="location">📍 Delivering to: <b id="locationText">Hemtabad Bazar</b> <span onclick="openLocation()" style="cursor:pointer">▼</span></div>
+<div class="searchWrap"><div class="search"><span class="searchIcon">⌕</span><input id="searchBox" placeholder="Search for products..." oninput="doSearch()" autocomplete="off"></div></div>
 <div class="categories">
+  <div class="category active" data-category="all" onclick="filterCategory('all',this)"><div class="categoryIcon">🌿</div><p>All</p></div>
+  <div class="category" data-category="veg" onclick="filterCategory('veg',this)"><div class="categoryIcon">🥦</div><p>Veg</p></div>
+  <div class="category" data-category="masala" onclick="filterCategory('masala',this)"><div class="categoryIcon">🌶️</div><p>Masala</p></div>
+  <div class="category" data-category="oil" onclick="filterCategory('oil',this)"><div class="categoryIcon">🛢️</div><p>Oil</p></div>
+  <div class="category" data-category="snacks" onclick="filterCategory('snacks',this)"><div class="categoryIcon">🍿</div><p>Snacks</p></div>
+  <div class="category" data-category="cold" onclick="filterCategory('cold',this)"><div class="categoryIcon">🥤</div><p>Cold</p></div>
+  <div class="category" data-category="cooking" onclick="filterCategory('cooking',this)"><div class="categoryIcon">🍳</div><p>Cooking</p></div>
+  <div class="category" data-category="momos" onclick="filterCategory('momos',this)"><div class="categoryIcon">🥟</div><p>Momos</p></div>
+  <div class="category" data-category="rice" onclick="filterCategory('rice',this)"><div class="categoryIcon">🌾</div><p>Chal</p></div>
+  <div class="category" data-category="garbage" onclick="filterCategory('garbage',this)"><div class="categoryIcon">🧹</div><p>Garbage</p></div>
+  <div class="category" data-category="coil" onclick="filterCategory('coil',this)"><div class="categoryIcon">🦟</div><p>Coil</p></div>
+</div>
 
-  <div class="category active"
-       data-category="all"
-       onclick="filterCategory('all',this)">
-    <div class="categoryIcon">🌿</div>
-    <p>All</p>
-  </div>
-
-  <div class="category"
-       data-category="veg"
-       onclick="filterCategory('veg',this)">
-    <div class="categoryIcon">🥦</div>
-    <p>Veg</p>
-  </div>
-
-  <div class="category"
-       data-category="masala"
-       onclick="filterCategory('masala',this)">
-    <div class="categoryIcon">🌶️</div>
-    <p>Masala</p>
-  </div>
-
-  <div class="category"
-       data-category="oil"
-       onclick="filterCategory('oil',this)">
-    <div class="categoryIcon">🛢️</div>
-    <p>Oil</p>
-  </div>
-
-  <div class="category"
-       data-category="snacks"
-       onclick="filterCategory('snacks',this)">
-    <div class="categoryIcon">🍿</div>
-    <p>Snacks</p>
-  </div>
-
-  <div class="category"
-       data-category="cold"
-       onclick="filterCategory('cold',this)">
-    <div class="categoryIcon">🥤</div>
-    <p>Cold</p>
-  </div>
-
- <div class="category" 
-   data-category="cooking" 
-   onclick="filterCategory('cooking',this)">
-   <div class="categoryIcon">🍳</div>
-   <p>Cooking</p>
- </div>
-
-  <div class="category" 
-    data-category="momos" 
-    onclick="filterCategory('momos',this)">
-    <div class="categoryIcon">🥟</div>
-    <p>Momos</p>
-  </div>
-
-  <div class="category"
-       data-category="rice"
-       onclick="filterCategory('rice',this)">
-    <div class="categoryIcon">🌾</div>
-    <p>Chal</p>
-  </div>
-
-  <div class="category"
-       data-category="garbage"
-       onclick="filterCategory('garbage',this)">
-    <div class="categoryIcon">🧹</div>
-    <p>Garbage</p>
-  </div>
-
-  <div class="category"
-       data-category="coil"
-       onclick="filterCategory('coil',this)">
-    <div class="categoryIcon">🦟</div>
-    <p>Coil</p>
-  </div>
-<!-- 🔥 ROOP AUTO SLIDER - FINAL FIXED -->
-<div style="margin:12px 16px;position:relative;overflow:hidden;border-radius:18px;height:148px;box-shadow:0 6px 18px rgba(0,0,0,.15);background:#fff;">
-<div id="roopSliderTrack" style="display:flex;height:100%;transform:translateX(0);transition:transform .7s cubic-bezier(.25,.46,.45,.94);will-change:transform;">
-  <div style="min-width:100%;height:100%;background:linear-gradient(135deg,#ff6a00,#ff2848);padding:16px 18px;color:#fff;display:flex;justify-content:space-between;align-items:center;box-sizing:border-box;">
+<!-- 🔥 ROOP AUTO SLIDER - FIXED -->
+<div style="margin:12px 16px;position:relative;overflow:hidden;border-radius:18px;height:148px;box-shadow:0 6px 18px rgba(0,0,0,.15);background:#fff;clear:both;display:block;">
+<div id="roopSliderTrack" style="display:flex;height:100%;width:300%;transform:translateX(0);transition:transform.7s ease;will-change:transform;">
+  <div style="width:33.3333%;height:100%;flex-shrink:0;background:linear-gradient(135deg,#ff6a00,#ff2848);padding:16px 18px;color:#fff;display:flex;justify-content:space-between;align-items:center;box-sizing:border-box;">
     <div><div style="font-size:11px;font-weight:800;background:rgba(255,255,255,.25);display:inline-block;padding:3px 8px;border-radius:20px;margin-bottom:6px;">🎉 LIMITED TIME</div><h2 style="font-size:18px;font-weight:900;margin:0;line-height:1.1;">ROOP Grand Launch<br>Offer</h2><div style="margin-top:8px;background:#fff;color:#ff2848;font-size:12px;font-weight:900;padding:5px 12px;border-radius:20px;display:inline-block;">🔥 UP TO 25% OFF</div><p style="font-size:11px;margin:6px 0 0;opacity:.9;">🚚 Delivery in 1 Hour | 📍 Hemtabad</p></div>
     <div style="width:60px;height:60px;border-radius:50%;border:3px solid #fff;overflow:hidden;background:#fff;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:28px;">🎁</div>
   </div>
-  <div style="min-width:100%;height:100%;background:linear-gradient(135deg,#ff6a00,#ff2848);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;padding:15px;box-sizing:border-box;">
+  <div style="width:33.3333%;height:100%;flex-shrink:0;background:linear-gradient(135deg,#ff6a00,#ff2848);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;text-align:center;padding:15px;box-sizing:border-box;">
     <h2 style="margin:0;font-size:17px;font-weight:900;">🥦 Taja Sobji | 🍛 Biryani | 🥤 Cold Drinks</h2><p style="margin:7px 0 0;font-size:13px;font-weight:600;">Delivery in 1 Hour - Hemtabad Bazar</p><div style="margin-top:8px;background:#fff;color:#ff2848;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:900;">🛒 ORDER NOW</div>
   </div>
-  <div style="min-width:100%;height:100%;background:linear-gradient(135deg,#0c831f,#0a6b1a);padding:16px 18px;color:#fff;display:flex;justify-content:space-between;align-items:center;box-sizing:border-box;">
+  <div style="width:33.3333%;height:100%;flex-shrink:0;background:linear-gradient(135deg,#0c831f,#0a6b1a);padding:16px 18px;color:#fff;display:flex;justify-content:space-between;align-items:center;box-sizing:border-box;">
     <div><h2 style="font-size:18px;font-weight:900;margin:0;">🚚 1 Hour Delivery</h2><p style="font-size:13px;margin:6px 0 0;opacity:.9;">Hemtabad Bazar & Nearby</p><div style="margin-top:8px;background:#fff;color:#0c831f;font-size:12px;font-weight:900;padding:5px 12px;border-radius:20px;display:inline-block;">🛒 ORDER NOW</div></div><div style="font-size:48px;">🛵</div>
   </div>
 </div>
-<div id="sliderDots" style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px;"><div style="width:18px;height:6px;border-radius:10px;background:#fff;transition:all .3s;"></div><div style="width:6px;height:6px;border-radius:10px;background:rgba(255,255,255,.5);transition:all .3s;"></div><div style="width:6px;height:6px;border-radius:10px;background:rgba(255,255,255,.5);transition:all .3s;"></div></div>
+<div id="sliderDots" style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px;"><div style="width:18px;height:6px;border-radius:10px;background:#fff;"></div><div style="width:6px;height:6px;border-radius:10px;background:rgba(255,255,255,.5);"></div><div style="width:6px;height:6px;border-radius:10px;background:rgba(255,255,255,.5);"></div></div>
 </div>
-<script>(function(){let i=0;const t=document.getElementById("roopSliderTrack"),d=document.getElementById("sliderDots");if(!t||!d)return;const s=d.children;setInterval(()=>{i=(i+1)%3;t.style.transform=translateX(-${i*100}%);for(let k=0;k<3;k++){s[k].style.width=k==i?"18px":"6px";s[k].style.background=k==i?"#fff":"rgba(255,255,255,.5)"}},3000)})();</script>
+<script>(function(){let i=0;const t=document.getElementById("roopSliderTrack"),d=document.getElementById("sliderDots");if(!t||!d)return;const s=d.children;setInterval(()=>{i=(i+1)%3;t.style.transform=`translateX(-${i*33.3333}%)`;for(let k=0;k<3;k++){s[k].style.width=k==i?"18px":"6px";s[k].style.background=k==i?"#fff":"rgba(255,255,255,.5)"}},3500)})();</script>
 
-<div class="section" style="clear:both;"><h2>Popular Products</h2><span id="productCount">0 Products</span></div>
-<div class="products" id="productList" style="display:grid!important;grid-template-columns:repeat(2,1fr)!important;width:100%!important;"></div>
+<div class="section"><h2>Popular Products</h2><span id="productCount">0 Products</span></div>
+<div class="products" id="productList"></div>
+
   <div class="trustItem">
     <div class="trustIcon">🛡️</div>
     <b>Safe & Secure</b>
